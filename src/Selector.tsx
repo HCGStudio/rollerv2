@@ -22,6 +22,10 @@ const useStyles = makeStyles({
   buttonLeft: {
     marginRight: "10px",
   },
+  image: {
+    "@media (min-width: 650px)": { width: "600px" },
+    "@media (min-width: 1px)": { width: "auto" },
+  },
 });
 
 export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
@@ -52,12 +56,17 @@ export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
           <Text as="h2" size={800}>
             当前游戏：{data.maps[map]}
           </Text>
-          <Image src={maps[map]} width="600px" shape="rounded"></Image>
+          <Image
+            src={maps[map]}
+            className={styles.image}
+            shape="rounded"
+          ></Image>
         </>
       ) : null}
       {stage === 1 ? (
         <MutatorSelector
           difficulty={props.difficulty}
+          map={map}
           selectDoneCallback={(m) => {
             setMutator(m);
             nextStage();

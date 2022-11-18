@@ -1,7 +1,13 @@
-export const randomSelect = (min: number, max: number, take: number) => {
+export const randomSelect = (
+  min: number,
+  max: number,
+  take: number,
+  exclude?: Set<number>
+) => {
   const nums = new Set<number>();
   while (nums.size !== take) {
-    nums.add(Math.floor(Math.random() * (max - min + 1)) + min);
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!exclude || !exclude.has(rand)) nums.add(rand);
   }
   return [...nums];
 };

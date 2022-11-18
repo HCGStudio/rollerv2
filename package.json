@@ -7,10 +7,12 @@
     "build": "rimraf ./docs && parcel build"
   },
   "devDependencies": {
+    "@parcel/config-default": "^2.8.0",
     "@parcel/core": "^2.8.0",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "parcel": "latest",
+    "parcel-reporter-static-files-copy": "^1.4.0",
     "process": "^0.11.10",
     "rimraf": "^3.0.2",
     "typescript": "^4.9.3"

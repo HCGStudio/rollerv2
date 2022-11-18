@@ -10,6 +10,7 @@ export interface IMutatorShowProps {
 const useStyles = makeStyles({
   mutatorWrapper: {
     display: "flex",
+    flexWrap: "wrap",
   },
   mutator: {
     marginRight: "5px",

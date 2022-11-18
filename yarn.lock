@@ -992,10 +992,12 @@ __metadata:
   resolution: "@hcgstudio/roller-v2@workspace:."
   dependencies:
     "@fluentui/react-components": ^9.7.0
+    "@parcel/config-default": ^2.8.0
     "@parcel/core": ^2.8.0
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
     parcel: latest
+    parcel-reporter-static-files-copy: ^1.4.0
     process: ^0.11.10
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -1234,7 +1236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/config-default@npm:2.8.0":
+"@parcel/config-default@npm:2.8.0, @parcel/config-default@npm:^2.8.0":
   version: 2.8.0
   resolution: "@parcel/config-default@npm:2.8.0"
   dependencies:
@@ -1554,7 +1556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@parcel/plugin@npm:2.8.0":
+"@parcel/plugin@npm:2.8.0, @parcel/plugin@npm:^2.0.0-beta.1":
   version: 2.8.0
   resolution: "@parcel/plugin@npm:2.8.0"
   dependencies:
@@ -3260,6 +3262,15 @@ __metadata:
   dependencies:
     aggregate-error: ^3.0.0
   checksum: cb0ab21ec0f32ddffd31dfc250e3afa61e103ef43d957cc45497afe37513634589316de4eb88abdfd969fe6410c22c0b93ab24328833b8eb1ccc087fc0442a1c
+  languageName: node
+  linkType: hard
+
+"parcel-reporter-static-files-copy@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "parcel-reporter-static-files-copy@npm:1.4.0"
+  dependencies:
+    "@parcel/plugin": ^2.0.0-beta.1
+  checksum: 025d8c03458ee34c969a8ffcd43814eed9dc4e30923b161dcd2a503b573fed67f594f8c14a3ef34c010449d573e9795fcbdbc0b971cbc5c2932d6a063aebd7c5
   languageName: node
   linkType: hard
 
