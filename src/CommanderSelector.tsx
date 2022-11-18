@@ -1,0 +1,52 @@
+import { Button, makeStyles, Text } from "@fluentui/react-components";
+import React from "react";
+import data from "./data.json";
+import { randomSelect } from "./utils";
+
+export interface ICommanderSelectorProps {
+  selectCallback: (selected: number) => void;
+}
+
+const useStyles = makeStyles({
+  buttonWrapper: {
+    display: "flex",
+  },
+});
+
+export const CommanderSelector: React.FC<ICommanderSelectorProps> = (
+  props: ICommanderSelectorProps
+) => {
+  const [pass, setPass] = React.useState(0);
+  const styles = useStyles();
+  const commanderRolled = React.useMemo(() => {
+    const rolledCommander = randomSelect(1, 17, 8);
+    const result: Array<Array<number>> = [];
+    while (rolledCommander.length > 0) {
+      const chunk = rolledCommander.splice(0, 4);
+      result.push(chunk);
+    }
+    return result;
+  }, []);
+
+  return (
+    <>
+      <Text size={400} as="p">
+        请在下面四个指挥官中选出你
+        <strong>想要</strong>的
+      </Text>
+      <div className={styles.buttonWrapper}>
+        {commanderRolled[pass].map((i) => (
+          <Button
+            key={i}
+            onClick={() => {
+              if (pass !== 1) setPass(pass + 1);
+              props.selectCallback(i);
+            }}
+          >
+            {data.commanders[i]}
+          </Button>
+        ))}
+      </div>
+    </>
+  );
+};
