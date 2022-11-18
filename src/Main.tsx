@@ -9,8 +9,11 @@ const useStyles = makeStyles({
     flexDirection: "column",
     marginLeft: "15px",
   },
-  difficultyContainer: { display: "flex" },
-  difficultyButton: { marginRight: "5px !important" },
+  difficultyContainer: { display: "flex", flexWrap: "wrap" },
+  difficultyButton: {
+    marginRight: "5px !important",
+    marginBottom: "5px !important",
+  },
 });
 
 export const Main: React.FC = () => {
