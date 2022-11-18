@@ -114,6 +114,15 @@ export const Main: React.FC = () => {
             startGame(Difficulty.impossible);
           }}
         >
+          差强人意
+        </Button>
+        <Button
+          className={styles.difficultyButton}
+          appearance="primary"
+          onClick={() => {
+            startGame(Difficulty.impossiblePlus);
+          }}
+        >
           你是神吧
         </Button>
       </div>

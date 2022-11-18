@@ -1,10 +1,11 @@
 import { Button, makeStyles, Text } from "@fluentui/react-components";
 import React from "react";
 import data from "./data.json";
-import { randomSelect } from "./utils";
+import { Difficulty, randomNumber, randomSelect } from "./utils";
 
 export interface ICommanderSelectorProps {
   selectCallback: (selected: number) => void;
+  difficulty: Difficulty;
 }
 
 const useStyles = makeStyles({
@@ -19,8 +20,21 @@ export const CommanderSelector: React.FC<ICommanderSelectorProps> = (
   const [pass, setPass] = React.useState(0);
   const styles = useStyles();
   const commanderRolled = React.useMemo(() => {
-    const rolledCommander = randomSelect(1, 17, 8);
+    const rolledCommander = randomSelect(
+      1,
+      17,
+      8,
+      props.difficulty === Difficulty.impossiblePlus
+        ? new Set([1, 2, 3])
+        : undefined
+    );
+
     const result: Array<Array<number>> = [];
+    if (props.difficulty === Difficulty.impossiblePlus) {
+      result.push([1, 2, 3]);
+      setPass(pass + 1);
+      props.selectCallback(randomNumber(1, 3));
+    }
     while (rolledCommander.length > 0) {
       const chunk = rolledCommander.splice(0, 4);
       result.push(chunk);

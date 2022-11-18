@@ -11,6 +11,7 @@ export const rollOrder: Record<Difficulty, Array<number>> = {
   [Difficulty.hard]: [1, 2, 1, 2, 1],
   [Difficulty.hardPlus]: [2, 1, 2, 1, 1],
   [Difficulty.impossible]: [3, 2, 1, 1],
+  [Difficulty.impossiblePlus]: [3, 2, 2, 1],
 };
 
 export interface IMutatorSelectorProps {

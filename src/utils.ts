@@ -23,6 +23,7 @@ export enum Difficulty {
   hard,
   hardPlus,
   impossible,
+  impossiblePlus,
 }
 
 export const difficultyText: Record<Difficulty, string> = {
@@ -31,5 +32,6 @@ export const difficultyText: Record<Difficulty, string> = {
   [Difficulty.normal]: "正常人类",
   [Difficulty.hard]: "有点困难",
   [Difficulty.hardPlus]: "非常困难",
-  [Difficulty.impossible]: "你是神吧",
+  [Difficulty.impossible]: "差强人意",
+  [Difficulty.impossiblePlus]: "你是神吧",
 };

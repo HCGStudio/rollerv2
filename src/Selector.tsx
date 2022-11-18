@@ -81,6 +81,7 @@ export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
       ) : null}
       {stage === 2 ? (
         <CommanderSelector
+          difficulty={props.difficulty}
           selectCallback={(c) => {
             if (commander.length === 1) nextStage();
             setCommander([...commander, c]);
