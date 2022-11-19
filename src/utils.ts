@@ -35,3 +35,8 @@ export const difficultyText: Record<Difficulty, string> = {
   [Difficulty.impossible]: "差强人意",
   [Difficulty.impossiblePlus]: "你是神吧",
 };
+
+export const difficultyButtonText: Record<Difficulty, string> = {
+  ...difficultyText,
+  [Difficulty.easy]: "只因难度",
+};

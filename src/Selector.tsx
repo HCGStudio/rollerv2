@@ -13,6 +13,7 @@ export interface ISelectorProps {
   winCallback: VoidFunction;
   lostCallback: VoidFunction;
   difficulty: Difficulty;
+  single: boolean;
 }
 
 const useStyles = makeStyles({
@@ -81,9 +82,10 @@ export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
       ) : null}
       {stage === 2 ? (
         <CommanderSelector
+          single={props.single}
           difficulty={props.difficulty}
           selectCallback={(c) => {
-            if (commander.length === 1) nextStage();
+            if (commander.length === 1 || props.single) nextStage();
             setCommander([...commander, c]);
           }}
         />

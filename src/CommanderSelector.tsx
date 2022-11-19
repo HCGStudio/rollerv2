@@ -6,6 +6,7 @@ import { Difficulty, randomNumber, randomSelect } from "./utils";
 export interface ICommanderSelectorProps {
   selectCallback: (selected: number) => void;
   difficulty: Difficulty;
+  single: boolean;
 }
 
 const useStyles = makeStyles({
@@ -20,6 +21,8 @@ export const CommanderSelector: React.FC<ICommanderSelectorProps> = (
   const [pass, setPass] = React.useState(0);
   const styles = useStyles();
   const commanderRolled = React.useMemo(() => {
+    if (props.single) return [randomSelect(1, 17, 6)];
+
     const rolledCommander = randomSelect(
       1,
       17,
@@ -45,7 +48,7 @@ export const CommanderSelector: React.FC<ICommanderSelectorProps> = (
   return (
     <>
       <Text size={400} as="p">
-        请在下面四个指挥官中选出你
+        请在下面{props.single ? "六" : "四"}个指挥官中选出你
         <strong>想要</strong>的
       </Text>
       <div className={styles.buttonWrapper}>
@@ -53,7 +56,7 @@ export const CommanderSelector: React.FC<ICommanderSelectorProps> = (
           <Button
             key={i}
             onClick={() => {
-              if (pass !== 1) setPass(pass + 1);
+              if (pass !== 1 || props.single) setPass(pass + 1);
               props.selectCallback(i);
             }}
           >

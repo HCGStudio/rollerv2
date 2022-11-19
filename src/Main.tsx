@@ -1,7 +1,13 @@
-import { Button, makeStyles, Text } from "@fluentui/react-components";
+import {
+  Button,
+  makeStyles,
+  Switch,
+  SwitchOnChangeData,
+  Text,
+} from "@fluentui/react-components";
 import React from "react";
 import { Selector } from "./Selector";
-import { Difficulty } from "./utils";
+import { Difficulty, difficultyButtonText } from "./utils";
 
 const useStyles = makeStyles({
   container: {
@@ -9,12 +15,25 @@ const useStyles = makeStyles({
     flexDirection: "column",
     marginLeft: "15px",
   },
-  difficultyContainer: { display: "flex", flexWrap: "wrap" },
+  difficultyContainer: { display: "flex", flexWrap: "wrap", marginTop: "5px" },
   difficultyButton: {
     marginRight: "5px !important",
     marginBottom: "5px !important",
   },
 });
+
+const difficultiesToShow: Record<1 | 2, Array<Difficulty>> = {
+  1: [
+    Difficulty.easy,
+    Difficulty.medium,
+    Difficulty.normal,
+    Difficulty.hard,
+    Difficulty.hardPlus,
+    Difficulty.impossible,
+    Difficulty.impossiblePlus,
+  ],
+  2: [Difficulty.easy],
+};
 
 export const Main: React.FC = () => {
   const [ready, setReady] = React.useState(false);
@@ -22,6 +41,7 @@ export const Main: React.FC = () => {
   const [lost, setLost] = React.useState(0);
   const [lastMessage, setLastMessage] = React.useState("准备好🍣了吗？");
   const [difficulty, setDifficulty] = React.useState(Difficulty.easy);
+  const [single, setSingle] = React.useState(false);
   const styles = useStyles();
 
   const lostGame = React.useCallback(() => {
@@ -41,12 +61,20 @@ export const Main: React.FC = () => {
     setReady(true);
   }, []);
 
+  const onSingleChange = React.useCallback(
+    (_ev: React.ChangeEvent<HTMLInputElement>, data: SwitchOnChangeData) => {
+      setSingle(data.checked);
+    },
+    []
+  );
+
   return ready ? (
     <div className={styles.container}>
       <Selector
         winCallback={winGame}
         lostCallback={lostGame}
         difficulty={difficulty}
+        single={single}
       />
     </div>
   ) : (
@@ -61,70 +89,24 @@ export const Main: React.FC = () => {
       <Text as="p" size={400}>
         {lastMessage} 选择你的<del>死法</del>难度：
       </Text>
+      <Switch
+        checked={single}
+        onChange={onSingleChange}
+        label={<Text size={400}>{single ? "单打" : "双打"}</Text>}
+      />
       <div className={styles.difficultyContainer}>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.easy);
-          }}
-        >
-          只因难度
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.medium);
-          }}
-        >
-          有手就行
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.normal);
-          }}
-        >
-          正常人类
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.hard);
-          }}
-        >
-          有点困难
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.hardPlus);
-          }}
-        >
-          非常困难
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.impossible);
-          }}
-        >
-          差强人意
-        </Button>
-        <Button
-          className={styles.difficultyButton}
-          appearance="primary"
-          onClick={() => {
-            startGame(Difficulty.impossiblePlus);
-          }}
-        >
-          你是神吧
-        </Button>
+        {difficultiesToShow[single ? 2 : 1].map((d) => (
+          <Button
+            className={styles.difficultyButton}
+            appearance="primary"
+            key={d}
+            onClick={() => {
+              startGame(d);
+            }}
+          >
+            {difficultyButtonText[d]}
+          </Button>
+        ))}
       </div>
     </div>
   );

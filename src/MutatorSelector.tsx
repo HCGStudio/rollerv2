@@ -140,19 +140,6 @@ export const MutatorSelector: React.FC<IMutatorSelectorProps> = (
   console.log(selected);
   return (
     <>
-      {/* <div className={styles.mutatorWrapper}>
-        {selected.map((n) => (
-          <Image
-            key={n}
-            src={mutators[n]}
-            height="64px"
-            className={styles.mutator}
-          />
-        ))}
-      </div>
-      <Text size={400} as="p">
-        已选因子：{selected.map((s) => data.mutators[s]).join(" ")}
-      </Text> */}
       <MutatorShow mutators={selected} />
       <Text size={400} as="p">
         请在下面三个因子中选出你
