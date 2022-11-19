@@ -18,7 +18,7 @@ import artanis from "./assets/avatars/Artanis.webp";
 import jim from "./assets/avatars/Jim.webp";
 import sarah from "./assets/avatars/Sarah.webp";
 import { maps } from "./assets/maps";
-import data from "./data.json";
+import data from "./data";
 import { randomSelect } from "./utils";
 
 export interface IMapSelectorProps {

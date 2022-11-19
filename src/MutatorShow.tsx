@@ -1,7 +1,7 @@
 import { Image, makeStyles, Text } from "@fluentui/react-components";
 import React from "react";
 import { mutators } from "./assets/mutators";
-import data from "./data.json";
+import data from "./data";
 
 export interface IMutatorShowProps {
   mutators: Array<number>;

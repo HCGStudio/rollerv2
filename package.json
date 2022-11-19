@@ -20,9 +20,11 @@
   "packageManager": "yarn@3.3.0",
   "dependencies": {
     "@fluentui/react-components": "^9.7.0",
+    "core-js-pure": "^3.26.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "scheduler": "^0.23.0"
+    "scheduler": "^0.23.0",
+    "usehooks-ts": "^2.9.1"
   },
   "targets": {
     "default": {

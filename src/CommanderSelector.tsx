@@ -1,6 +1,6 @@
 import { Button, makeStyles, Text } from "@fluentui/react-components";
 import React from "react";
-import data from "./data.json";
+import data from "./data";
 import { Difficulty, randomNumber, randomSelect } from "./utils";
 
 export interface ICommanderSelectorProps {

@@ -5,7 +5,5 @@ export interface Data {
   commanders: Array<string>;
 }
 
-declare module "data.json" {
-  const data: Data;
-  export default data;
-}
+declare const data: Data;
+export default data;

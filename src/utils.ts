@@ -40,3 +40,18 @@ export const difficultyButtonText: Record<Difficulty, string> = {
   ...difficultyText,
   [Difficulty.easy]: "只因难度",
 };
+
+export interface IMatch {
+  map: number;
+  mutators: Array<number>;
+  commanders: Array<number>;
+  difficulty: Difficulty;
+  win: boolean;
+  startTime: number;
+  recordTime: number;
+}
+
+export interface IMatchHistory {
+  single: Array<IMatch>;
+  multiple: Array<IMatch>;
+}

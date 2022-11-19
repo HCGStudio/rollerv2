@@ -994,8 +994,11 @@ __metadata:
     "@fluentui/react-components": ^9.7.0
     "@parcel/config-default": ^2.8.0
     "@parcel/core": ^2.8.0
+    "@types/core-js": ^2.5.5
     "@types/react": ^18.0.25
     "@types/react-dom": ^18.0.9
+    core-js: ^3.26.1
+    core-js-pure: ^3.26.1
     parcel: latest
     parcel-reporter-static-files-copy: ^1.4.0
     process: ^0.11.10
@@ -1004,6 +1007,7 @@ __metadata:
     rimraf: ^3.0.2
     scheduler: ^0.23.0
     typescript: ^4.9.3
+    usehooks-ts: ^2.9.1
   languageName: unknown
   linkType: soft
 
@@ -1890,6 +1894,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/core-js@npm:^2.5.5":
+  version: 2.5.5
+  resolution: "@types/core-js@npm:2.5.5"
+  checksum: 54eb91dc52206d8e524771cd079be4bed6a41947d08183a7954df7a3dc25ae21c8b7176143dc7203df82a6e5ff1df8998edc8d407c4a082bdbf0ede35369c5c3
+  languageName: node
+  linkType: hard
+
 "@types/parse-json@npm:^4.0.0":
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
@@ -2244,6 +2255,20 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: 8755d76787f94e6cf79ce4666f0c5519906d7f5b02d4b884cf41e11dcd759ed69c57da0670afd9236d229a46e0f9cf519db0cd829c6dca820bb5a5c3def584ed
+  languageName: node
+  linkType: hard
+
+"core-js-pure@npm:^3.26.1":
+  version: 3.26.1
+  resolution: "core-js-pure@npm:3.26.1"
+  checksum: d88c40e5e29e413c11d1ef991a8d5b6a63f00bd94707af0f649d3fc18b3524108b202f4ae75ce77620a1557d1ba340bc3362b4f25d590eccc37cf80fc75f7cd4
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.26.1":
+  version: 3.26.1
+  resolution: "core-js@npm:3.26.1"
+  checksum: 0a01149f51ff1e9f41d1ea49cc4c9222047949ea597189ede7c4cf8cde3b097766b9c7615acc77c86fe65b4002f20b638a133dfba7b41dba830d707aeeed45ad
   languageName: node
   linkType: hard
 
@@ -3799,6 +3824,16 @@ __metadata:
   bin:
     browserslist-lint: cli.js
   checksum: 12db73b4f63029ac407b153732e7cd69a1ea8206c9100b482b7d12859cd3cd0bc59c602d7ae31e652706189f1acb90d42c53ab24a5ba563ed13aebdddc5561a0
+  languageName: node
+  linkType: hard
+
+"usehooks-ts@npm:^2.9.1":
+  version: 2.9.1
+  resolution: "usehooks-ts@npm:2.9.1"
+  peerDependencies:
+    react: ^16.8.0  || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0  || ^17.0.0 || ^18.0.0
+  checksum: 36f1e4142ce23bc019b81d2e93aefd7f2c350abcf255598c21627114a69a2f2f116b35dc3a353375f09c6e4c9b704a04f104e3d10e98280545c097feca66c30a
   languageName: node
   linkType: hard
 

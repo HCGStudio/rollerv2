@@ -3,15 +3,23 @@ import React from "react";
 import { maps } from "./assets/maps";
 import { CommanderSelector } from "./CommanderSelector";
 import { CommanderShow } from "./CommanderShow";
-import data from "./data.json";
+import data from "./data";
 import { MapSelector } from "./MapSelector";
 import { MutatorSelector } from "./MutatorSelector";
 import { MutatorShow } from "./MutatorShow";
 import { Difficulty, difficultyText } from "./utils";
 
 export interface ISelectorProps {
-  winCallback: VoidFunction;
-  lostCallback: VoidFunction;
+  winCallback: (
+    map: number,
+    mutators: Array<number>,
+    commanders: Array<number>
+  ) => void;
+  lostCallback: (
+    map: number,
+    mutators: Array<number>,
+    commanders: Array<number>
+  ) => void;
   difficulty: Difficulty;
   single: boolean;
 }
@@ -100,11 +108,13 @@ export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
             <Button
               className={styles.buttonLeft}
               appearance="primary"
-              onClick={props.winCallback}
+              onClick={() => props.winCallback(map, mutator, commander)}
             >
               赢了
             </Button>
-            <Button onClick={props.lostCallback}>输了</Button>
+            <Button onClick={() => props.lostCallback(map, mutator, commander)}>
+              输了
+            </Button>
           </div>
         </>
       ) : null}

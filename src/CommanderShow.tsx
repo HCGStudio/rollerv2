@@ -1,7 +1,7 @@
 import { Image, makeStyles, Text } from "@fluentui/react-components";
 import React from "react";
 import { commanders } from "./assets/commanders";
-import data from "./data.json";
+import data from "./data";
 
 export interface ICommanderShowProps {
   commanders: Array<number>;

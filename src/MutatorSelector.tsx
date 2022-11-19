@@ -1,6 +1,6 @@
 import { Button, makeStyles, Text } from "@fluentui/react-components";
 import React from "react";
-import data from "./data.json";
+import data from "./data";
 import { MutatorShow } from "./MutatorShow";
 import { Difficulty, randomNumber, randomSelect } from "./utils";
 
@@ -108,7 +108,6 @@ export const MutatorSelector: React.FC<IMutatorSelectorProps> = (
   const styles = useStyles();
 
   React.useEffect(() => {
-    console.log(props.difficulty, Difficulty.medium);
     if (
       props.difficulty > Difficulty.medium &&
       props.difficulty !== Difficulty.hard
@@ -127,14 +126,11 @@ export const MutatorSelector: React.FC<IMutatorSelectorProps> = (
 
   const select = React.useCallback(
     (s: number) => {
-      console.log(selected);
-
       if (order[currentSelectTurn] === 1) selected.push(s);
       else
         for (let i = 0; i < 3; i++)
           if (rollResult[currentSelectTurn][i] !== s)
             selected.push(rollResult[currentSelectTurn][i]);
-      console.log(selected);
 
       setSelected([...selected]);
       if (currentSelectTurn === order.length - 1) {
@@ -146,7 +142,6 @@ export const MutatorSelector: React.FC<IMutatorSelectorProps> = (
     [selected, currentSelectTurn]
   );
 
-  console.log(selected);
   return (
     <>
       <MutatorShow mutators={selected} />
