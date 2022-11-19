@@ -92,7 +92,7 @@ export const Main: React.FC = () => {
       <Switch
         checked={single}
         onChange={onSingleChange}
-        label={<Text size={400}>{single ? "单打" : "双打"}</Text>}
+        label={single ? "单打" : "双打"}
       />
       <div className={styles.difficultyContainer}>
         {difficultiesToShow[single ? 2 : 1].map((d) => (

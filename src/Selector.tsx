@@ -68,6 +68,7 @@ export const Selector: React.FC<ISelectorProps> = (props: ISelectorProps) => {
         <MutatorSelector
           difficulty={props.difficulty}
           map={map}
+          single={props.single}
           selectDoneCallback={(m) => {
             setMutator(m);
             nextStage();
