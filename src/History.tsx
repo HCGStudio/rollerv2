@@ -34,7 +34,8 @@ const MatchHistory: React.FC<IMatchHistoryProps> = (
     <AccordionItem value={props.match.recordTime}>
       <AccordionHeader>
         {data.maps[props.match.map]}，难度：
-        {difficultyText[props.match.difficulty]}
+        {difficultyText[props.match.difficulty]}，
+        {props.match.win ? "胜利" : "失败"}
       </AccordionHeader>
       <AccordionPanel>
         <div>
